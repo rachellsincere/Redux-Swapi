@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getCharacter } from "../actions";
 
 import Character from "./Character";
 
@@ -11,5 +13,11 @@ const CharacterList = props => {
     </ul>
   );
 };
+const mapStateToProps = state => ({
+  character: state.character,
+  error: state.error,
+  isFetching: state.isFetching
+});
 
-export default CharacterList;
+export default connect(
+  mapStateToProps, { getCharacter })(CharacterList);
