@@ -28,8 +28,9 @@ class CharacterListView extends React.Component {
 
 // our mapStateToProps needs to have two properties inherited from state
 const mapStateToProps = state => {
+  console.log(state);
   return {
-  characters: state.characters,
+  characters: state.charsReducer.characters,
   error: state.error,
   isFetching: state.isFetching
   }
